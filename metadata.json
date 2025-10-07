@@ -1,0 +1,5 @@
+{
+  "name": "Solar AI Assessor",
+  "description": "A web application for solar panel installation companies to streamline initial client qualification and site assessment using generative AI for text and images.",
+  "requestFramePermissions": []
+}
