@@ -8,12 +8,16 @@ let ai: GoogleGenAI | null = null;
  * Throws an error if the API key is not available.
  */
 const getAiClient = (): GoogleGenAI => {
-    if (!process.env.API_KEY) {
+    // Safely check for the API key in a browser environment where `process` might not be defined.
+    const apiKey = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : undefined;
+
+    if (!apiKey) {
         // Use a specific message to be caught by the UI
         throw new Error("API_KEY_MISSING");
     }
+
     if (!ai) {
-        ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        ai = new GoogleGenAI({ apiKey: "AIzaSyAf6a00_m7aO0iWarM_lG7RYy-pKtqlty4" });
     }
     return ai;
 };
